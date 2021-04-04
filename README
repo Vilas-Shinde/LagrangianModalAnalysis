@@ -1,0 +1,30 @@
+﻿Enclosed :
+
+	 Main program: LagrangianModalAnalysis.f90
+
+	 Subroutines: DoubleGyre.f90, EulerianLagrangian.f90, ProperOrthogonalDecomposition.f90
+
+
+
+
+Information:
+
+	This fortran 90 code computes Lagrangian variant proper orthogonal decomposition (LPOD) modes for the double gyre flow pattern. DoubleGyre.f90 subroutine generates Eulerian flow fields in a folder for specified number of flow fields, time-step, and name of the folder/files in the main program: LagrangianModalAnalysis.f90.
+
+	The Eulerian snapshots are converted into Lagrangian snapshots in EulerianLagrangian.f90 subroutine. The Lagrangian flow fields can be generated for both the forward and backward passage of time using parameter 'td' (for time direction) in the main program (LagrangianModalAnalysis.f90). Furthermore, the Lagrangian snapshots can be obtained for a single state of the Eulerian flow, useful for Lagrangian modal analysis of a steady or base flow. The Lagrangian flow fields are also recorded for post-processing.
+
+	The Lagrangian flow fields are sent to ProperOrthogonalDecomposition.f90 subroutine, which is a standard subroutine to perform proper orthogonal decomposition. The results are stored in LPOD folder, where the spatial modes (*.x, *.q files), time modes (*_psi.txt files) and modal energies (*_lam.txt) are written separately for the solution variables.
+
+	The Eulerian and Lagrangian flow fields and the LPOD spatial modes are written in binary format, and are readable by the tecplot software.
+
+
+
+
+Using the code:
+
+	1. Compile the code using a fortran compiler, e.g., gfortran
+	2. By default the code uses fn=101 and dt=0.15 for the number and time-step of Eulerian snapshots. The same values are used in the Lagrangian frame of reference.
+	3. The time direction can be selected by using td=1 or td=-1 for the forward and backward analysis, respectively.
+	4. To perform the Lagrangian modal analysis of a single Eulerian flow field, choose fn=1 and Nt > fn (e.g., Nt=101).
+	5. A limited number of dominant LPOD modes can be stored using a parameter 'nmode'.
+	6. Re-running the code replaces the previous datasets (i.e., Eulerian, Lagrangian flow fields and LPOD modes).
