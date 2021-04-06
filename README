@@ -28,3 +28,6 @@ Using the code:
 	4. To perform the Lagrangian modal analysis of a single Eulerian flow field, choose fn=1 and Nt > fn (e.g., Nt=101).
 	5. A limited number of dominant LPOD modes can be stored using a parameter 'nmode'.
 	6. Re-running the code replaces the previous datasets (i.e., Eulerian, Lagrangian flow fields and LPOD modes).
+
+References:
+	1. Shinde, V.J. & Gaitonde, D.V. 2021. Lagrangian approach for modal analysis of fluid flows. arXiv:2104.01308
